@@ -9,4 +9,7 @@ def test(request):
     return render(request, 'test.html')
 
 def second(request):
-    return HttpResponse('Test2 page')
+    return HttpResponse('This is page test2')
+
+def third(request):
+    return HttpResponse('This is page test3')
