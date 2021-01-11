@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color:rgb(26, 24, 24)
+}
+
+section{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_container{
+    width: 80%;
+}
+
+.create_input{
+    padding: 12px 5px;
+    font-size: 18px;
+    width: 80%;
+}
+
+.create_button{
+    padding: 12px 20px;
+    background-color: blueviolet;
+    border: 1px solid white;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 7px #999;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+}
+
+.create_button:hover {
+    background-color: rgb(83, 23, 139);
+}
+
+.create_button:active {
+  background-color: rgb(83, 23, 139);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+/* 
+.create_button:active{
+    border: 2px solid rgb(66, 62, 62);
+    box-shadow: 2px 2px 5px 3px  rgb(29, 28, 28);
+} */
+
+.todo_container{
+    padding: 30px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.todo_item{
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    width: 24%;
+    padding: 10px 15px;
+    background-color: burlywood;
+    margin-bottom: 20px;
+}
+
+.todo_item.marked{
+    background-color: chocolate;
+    border: 2px solid chocolate;
+}
+
+.todo_item.done{
+    background-color: rgb(148, 175, 224);
+    text-decoration: line-through;
+    color: rgb(102, 105, 110);
+    border: 2px solid rgb(148, 175, 224);
+}
+
+.todo_item.done h4, .todo_item.done p, .todo_item.done span{
+    color: rgb(102, 105, 110);
+}
+
+.todo_item.done img{
+    opacity: 0.5;
+}
+
+.todo_item_header{
+    display: flex;
+    align-items:center;
+    min-height: 40px;
+}
+
+.todo_item_header h4{
+    font-size: 18px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.todo_item_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo_item_footer p{
+    font-size: 15px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.todo_item_footer img{
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.todo_item_footer.action_buttons{
+    display: flex;
+}
+
