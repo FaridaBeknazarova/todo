@@ -1,0 +1,17 @@
+h1{
+    background-color: aqua;
+    font-style: italic;
+    display: inline;
+}
+
+h2{
+    background-color: burlywood;
+    text-decoration: underline;
+    display: inline;
+}
+
+h3{
+    background-color: red;
+    text-decoration: line-through;
+    display: inline;
+}
