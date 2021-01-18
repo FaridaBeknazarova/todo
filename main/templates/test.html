@@ -1,14 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lesson_18</title>
+       
+        <!-- <link rel="stylesheet" href="./style/index.css"> -->
+        <link rel="stylesheet" href="{% static 'style/index.css'%}">
+    
+        <!-- <link rel="stylesheet" href="./style/checkbox.css"> -->
+        <link rel="stylesheet" href="{% static 'style/checkbox.css'%}">
+    
+    </head>
 <body>
-    <h2>Это тестовая страница</h2>
-    {% for todo in todo_list %}
-        <h3>{{todo.text}} - {{todo.created_at}}</h3>
-    {% endfor%}
+    <section>
+        <div class="create_container">
+            <input type="text" class="create_input" placeholder="Напишите сюда новую задачу">
+            <button class="create_button">Добавить</button>
+        </div>
+        <div class="todo_container">
+            {% for todo in todo_list %}
+
+                <div class="todo_item">
+                    <div class="todo_item_header">
+                        <label class="container">
+                            <input type="checkbox" checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
+                        <h4>{{todo.text}}</h4>
+                    </div>
+                    <div class="todo_item_footer">
+                        <p>{{todo.created_at}}</p>
+                        <div class="action_buttons">
+                            <img src="./icons/star.png" alt="">
+                            <img src="./icons/basket.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
 </body>
 </html>
