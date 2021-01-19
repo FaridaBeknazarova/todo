@@ -1,0 +1,21 @@
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.block{
+    min-width: fit-content;;
+    min-height: fit-content;
+    background-color: aqua;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 50px;
+}
