@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import ToDo, Book
 
 # Create your views here.
@@ -25,3 +25,10 @@ def page2(request):
 
 def page3(request):
     return render(request, 'page3.html')
+
+def add_todo(request):
+    form=request.POST
+    text=form["todo_text"]
+    todo=ToDo(text=text)
+    todo.save()
+    return redirect(test)
