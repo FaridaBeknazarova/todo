@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShop</title>
+    <!-- <link rel="stylesheet" href="../static/style/book_style.css">  -->
+    <link rel="stylesheet" href="{% static '../static/style/book_style.css' %}">
+</head>
+
+<body>
+    <section>
+        <div class="form_container">
+            <form action="">
+                <p>Добавление новой книги</p>
+                <label for="title">Заголовок</label>
+                <input type="text" id="title" name="book_title" placeholder="title">
+
+                <label for="subtitle">Подзаголовок</label>
+                <input type="text" id="subtitle" name="book_subtitle" placeholder="subtitle">
+
+                <label for="description">Описание</label>
+                <input type="text" id="description" name="book_description" placeholder="description">
+
+                <label for="price">Цена</label>
+                <input type="text" id="price" name="book_price" placeholder="price">
+
+                <label for="genre">Жанр</label>
+                <input type="text" id="genre" name="book_genre" placeholder="genre">
+
+                <label for="author">Автор</label>
+                <input type="text" id="author" name="book_author" placeholder="author">
+
+                <label for="year">Год выхода книги</label>
+                <input type="text" id="year" name="book_year" placeholder="year">
+
+                <input type="submit" value="Добавить">
+
+            </form>
+        </div>
+
+
+        <div class="book_container">
+            {% for i in book_item %}
+            <div class="block">
+                <h3>{{i.title}}</h3>
+                <h4>{{i.author}}</h4>
+                <h5>{{i.year}}</h5>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+
+
+
+
+</body>
+
+</html>

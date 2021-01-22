@@ -12,7 +12,7 @@ def test(request):
 
 def second(request):
     book_item=Book.objects.all()
-    return render(request, 'book.html', {"book_item":book_item})
+    return render(request, 'books.html', {"book_item":book_item})
 
 def third(request):
     return HttpResponse('This is page test3')
