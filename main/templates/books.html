@@ -13,7 +13,8 @@
 <body>
     <section>
         <div class="form_container">
-            <form action="">
+            <form action="{% url 'add-book' %}" method="POST">
+                {% csrf_token %}
                 <p>Добавление новой книги</p>
                 <label for="title">Заголовок</label>
                 <input type="text" id="title" name="book_title" placeholder="title">
