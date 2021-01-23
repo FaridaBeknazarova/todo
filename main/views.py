@@ -39,4 +39,10 @@ def add_book(request):
     i=Book(title=title)
     i.save()
     return redirect(second)
+
+def delete_todo(request, id):
+    todo=ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(test)
+    
     
