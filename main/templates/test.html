@@ -1,18 +1,20 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lesson_18</title>
-       
-        <!-- <link rel="stylesheet" href="./style/index.css"> -->
-        <link rel="stylesheet" href="{% static './style/index.css'%}">
-    
-        <!-- <link rel="stylesheet" href="./style/checkbox.css"> -->
-        <link rel="stylesheet" href="{% static './style/checkbox.css'%}">
-    
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson_18</title>
+
+    <!-- <link rel="stylesheet" href="./style/index.css"> -->
+    <link rel="stylesheet" href="{% static './style/index.css'%}">
+
+    <!-- <link rel="stylesheet" href="./style/checkbox.css"> -->
+    <link rel="stylesheet" href="{% static './style/checkbox.css'%}">
+
+</head>
+
 <body>
     <section>
         <div class="create_container">
@@ -20,30 +22,39 @@
                 {% csrf_token %}
                 <input type="text" class="create_input" placeholder="Напишите сюда новую задачу" name="todo_text">
                 <button class="create_button">Добавить</button>
-            </form>     
+            </form>
         </div>
         <div class="todo_container">
             {% for todo in todo_list %}
-
-                <div class="todo_item">
-                    <div class="todo_item_header">
-                        <label class="container">
-                            <input type="checkbox" checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>{{todo.text}}</h4>
-                    </div>
-                    <div class="todo_item_footer">
-                        <p>{{todo.created_at}}</p>
-                        <div class="action_buttons">
-                            <img src="{% static './icons/star.png' %}" alt="">
-                            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/basket.png' %}" alt=""></a>
-                        </div>
+            <div class="todo_item 
+                    {% if todo.is_favorite %}
+                        marked
+                    {% endif %}
+                ">
+                <div class="todo_item_header">
+                    <label class="container">
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>{{todo.text}}</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>{{todo.created_at}}</p>
+                    <div class="action_buttons">
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'unmark-todo' todo.id %}"><img src="{% static './icons/yellow.png' %}" alt=""></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/star.png' %}" alt=""></a>
+                        {% endif %}
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/basket.png' %}"
+                                alt=""></a>
                     </div>
                 </div>
+            </div>
             {% endfor %}
 
         </div>
     </section>
 </body>
+
 </html>
