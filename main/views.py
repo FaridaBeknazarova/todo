@@ -26,19 +26,13 @@ def page2(request):
 def page3(request):
     return render(request, 'page3.html')
 
+
 def add_todo(request):
     form=request.POST
     text=form["todo_text"]
     todo=ToDo(text=text)
     todo.save()
     return redirect(test)
-
-def add_book(request):
-    form_item=request.POST
-    title=form_item["book_title"]
-    i=Book(title=title)
-    i.save()
-    return redirect(second)
 
 def delete_todo(request, id):
     todo=ToDo.objects.get(id=id)
@@ -56,3 +50,17 @@ def unmark_todo(request, id):
     todo.is_favorite=False
     todo.save()
     return redirect(test)
+
+
+def add_book(request):
+    form_item=request.POST
+    title=form_item["book_title"]
+    item=Book(title=title)
+    item.save()
+    return redirect(second)
+
+
+def delete_book(request, id):
+    item=Book.objects.get(id=id)
+    item.delete()
+    return redirect(second)

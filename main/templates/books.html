@@ -44,20 +44,24 @@
 
 
         <div class="book_container">
-            {% for i in book_item %}
-            <div class="block">
-                <h3>{{i.title}}</h3>
-                <h4>{{i.author}}</h4>
-                <h5>{{i.year}}</h5>
-            </div>
+            
+            {% for item in book_item %}
+                <div class="block">
+                    <div class="book_header">
+                        <h3>{{item.title}}</h3>
+                        <h4>{{item.author}}</h4>
+                        <h5>{{item.year}}</h5>
+                    </div>
+
+                    <div class="book_footer">
+                        <img  src="{% static '../static/icons/star.png' %}" alt="">
+                        <a href="{% url 'delete-book' item.id %}"><img  src="{% static '../static/icons/basket.png' %}" alt=""></a>
+                    </div>
+                </div>
             {% endfor %}
         </div>
 
     </section>
-
-
-
-
 
 </body>
 
