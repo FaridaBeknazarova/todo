@@ -26,7 +26,7 @@
                 <input type="text" id="description" name="book_description" placeholder="description">
 
                 <label for="price">Цена</label>
-                <input type="text" id="price" name="book_price" placeholder="price">
+                <input type="number" id="price" name="book_price" placeholder="price">
 
                 <label for="genre">Жанр</label>
                 <input type="text" id="genre" name="book_genre" placeholder="genre">
@@ -35,7 +35,7 @@
                 <input type="text" id="author" name="book_author" placeholder="author">
 
                 <label for="year">Год выхода книги</label>
-                <input type="text" id="year" name="book_year" placeholder="year">
+                <input type="datetime-local" id="year" name="book_year" placeholder="year">
 
                 <input type="submit" value="Добавить">
 
@@ -46,7 +46,12 @@
         <div class="book_container">
             
             {% for item in book_item %}
-                <div class="block">
+                <div class="block
+                    {% if item.is_favorite %}
+                        marked
+                    {% endif %}
+                
+                ">
                     <div class="book_header">
                         <h3>{{item.title}}</h3>
                         <h4>{{item.author}}</h4>
@@ -54,7 +59,11 @@
                     </div>
 
                     <div class="book_footer">
-                        <img  src="{% static '../static/icons/star.png' %}" alt="">
+                        {% if item.is_favorite %}
+                            <a href="{% url 'unmark-book' item.id %}"><img  src="{% static '../static/icons/yellow.png' %}" alt=""></a>
+                        {% else %}
+                            <a href="{% url 'mark-book' item.id %}"><img  src="{% static '../static/icons/star.png' %}" alt=""></a>
+                        {% endif %}
                         <a href="{% url 'delete-book' item.id %}"><img  src="{% static '../static/icons/basket.png' %}" alt=""></a>
                     </div>
                 </div>

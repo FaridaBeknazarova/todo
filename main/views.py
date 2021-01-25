@@ -52,10 +52,20 @@ def unmark_todo(request, id):
     return redirect(test)
 
 
+
+
+
 def add_book(request):
     form_item=request.POST
-    title=form_item["book_title"]
-    item=Book(title=title)
+    item=Book(
+        title=form_item["book_title"],
+        subtitle=form_item["book_subtitle"],
+        description=form_item["book_description"],
+        price=form_item["book_price"],
+        genre=form_item["book_genre"],
+        author=form_item["book_author"],
+        year=form_item["book_year"][:10]
+    )
     item.save()
     return redirect(second)
 
@@ -64,3 +74,16 @@ def delete_book(request, id):
     item=Book.objects.get(id=id)
     item.delete()
     return redirect(second)
+
+def mark_book(request, id):
+    item=Book.objects.get(id=id)
+    item.is_favorite=True
+    item.save()
+    return redirect(second)
+
+def unmark_book(request, id):
+    item=Book.objects.get(id=id)
+    item.is_favorite=False
+    item.save()
+    return redirect(second)
+    
