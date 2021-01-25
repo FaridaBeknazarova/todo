@@ -18,7 +18,7 @@ from django.urls import path
 from main.views import homepage
 from main.views import test, third, page1, page2, page3, add_todo, delete_todo, mark_todo, unmark_todo
 
-from main.views import second, add_book, delete_book, mark_book, unmark_book
+from main.views import second, add_book, delete_book, mark_book, unmark_book, BooksDetail
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -40,8 +40,9 @@ urlpatterns = [
     path('test2/', second),     
     path('add-book/', add_book, name='add-book'),
     path('delete-book/<id>/', delete_book, name='delete-book'),
-    path('mark-book/<id>', mark_book, name='mark-book'),
-    path('unmark-book/<id>', unmark_book, name='unmark-book'),
+    path('mark-book/<id>/', mark_book, name='mark-book'),
+    path('unmark-book/<id>/', unmark_book, name='unmark-book'),
+    path('books-detail/<id>/', BooksDetail, name='books-detail'), 
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

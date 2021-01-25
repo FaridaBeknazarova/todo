@@ -59,6 +59,7 @@
                     </div>
 
                     <div class="book_footer">
+                        <a href="{% url 'books-detail' item.id %}">Просмотр</a>
                         {% if item.is_favorite %}
                             <a href="{% url 'unmark-book' item.id %}"><img  src="{% static '../static/icons/yellow.png' %}" alt=""></a>
                         {% else %}
@@ -66,8 +67,10 @@
                         {% endif %}
                         <a href="{% url 'delete-book' item.id %}"><img  src="{% static '../static/icons/basket.png' %}" alt=""></a>
                     </div>
+                    
                 </div>
             {% endfor %}
+            
         </div>
 
     </section>

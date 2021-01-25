@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books_detail</title>
+    <!-- <link rel="stylesheet" href="../static/style/book_style.css"> -->
+    <link rel="stylesheet" href="{% static '../static/style/book_style.css' %}">
+</head>
+<body>
+    <section>
+        <div class="block_detail">
+            <div class="book_header">
+                <h3>{{book_objects.title}}</h3>
+                <h4>{{book_objects.subtitle}}</h4>
+                <h5>{{book_objects.description}}</h5>
+                <h5>{{book_objects.price}}</h5>
+                <h5>{{book_objects.genre}}</h5>
+                <h5>{{book_objects.author}}</h5>
+                <h5>{{book_objects.year}}</h5>
+
+            </div>
+
+        </div>
+    </section>
+           
+    
+</body>
+</html>
